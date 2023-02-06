@@ -17,7 +17,8 @@ const initState: ProductType[] = inventory.products; //the array of products for
 type ChildrenType = { children?: ReactElement | ReactElement[] };
 
 //creating context
-const ProductsContext = createContext<UseProductsContextType>(initContextState);
+export const ProductsContext =
+  createContext<UseProductsContextType>(initContextState);
 
 //provider
 export const ProductsProvider = ({ children }: ChildrenType): ReactElement => {
@@ -43,11 +44,9 @@ export const ProductsProvider = ({ children }: ChildrenType): ReactElement => {
   //     });
   //   }, []);
 
-  console.log("hello");
   return (
     <ProductsContext.Provider value={{ products }}>
       {children}
     </ProductsContext.Provider>
   );
 };
-export default ProductsContext;
